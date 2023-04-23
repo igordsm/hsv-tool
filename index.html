@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta chartset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="main.css">
+
+    <py-config>
+      packages = ["opencv-python", "numpy"]
+      terminal = false
+    </py-config>
+
+  </head>
+  <body>
+    <py-script src="src/main.py"></py-script>
+    <main id="filterMain">
+      <section id="configPanel">
+        <div id="minBox">
+          <h3> Minimum HSV values</h3>
+          <p><label for="Hmin"> H </label><span class="hsvRange"><input type="range" id="Hmin" min="0" max="360" value="0"></span></p>
+          <p><label for="Smin"> S </label><input type="range" id="Smin" min="0" max="255" value="50"></p>
+          <p><label for="Vmin"> V </label><input type="range" id="Vmin" min="0" max="255" value="50"></p>
+        </div>
+        <div id="maxBox">
+          <h3> Maximum HSV values</h3>
+          <p><label for="Hmax"> H </label><span class="hsvRange"><input type="range" id="Hmax" min="0" max="360" value="360"></span></p>
+          <p><label for="Smax"> S </label><input type="range" id="Smax" min="0" max="255" value="255"></p>
+          <p><label for="Vmax"> V </label><input type="range" id="Vmax" min="0" max="255" value="255"></p>
+        </div>
+        <h3> Filter Values </h3>
+        <code id="filterValuesBox">
+          Nenhum filtro aplicado ainda.
+        </code>
+      </section>
+      <section id="imageBox">
+        <div id="noImageSelected"> 
+          <p>Nenhuma imagem selecionada.</p>
+          <p>Clique para abrir uma imagem</p>
+        </div>
+        <div id="imageFilterPreview" class="hide">
+          <div>
+            <h3> Original </h3>
+            <img id="inImg">
+          </div>
+          <div>
+            <h3> M&aacute;scara </h3>
+            <img id="outImg">
+          </div>
+        </div>
+
+        <div id="fileLoader" class="hide">
+          <label for="fileBox"> Selecione imagem </label> <input type="file" id="fileBox">
+        </div>
+
+      </section>
+    </main>
+  </body>
+</html>
